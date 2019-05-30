@@ -20,7 +20,7 @@ function solution(n, users){
   for( let stage in userFail){
     answer[stage-1] = {stage: +stage, failRate: userFail[stage]/userCt}
     userCt-=userFail[stage];
-  }
+  };
 
   //remove number of players that beat all stages
   if(answer[answer.length-1].stage > n) answer.pop();
@@ -28,7 +28,7 @@ function solution(n, users){
   //fill in empty array elements with stage num and failrate of 0
   for(let i = 0; i< n; i++){
     if(!answer[i]) answer[i] = {stage: i+1, failRate: 0};
-  } 
+  }; 
 
   //sort array by failrate then by stage num
   answer.sort((a,b) => {
@@ -40,12 +40,12 @@ function solution(n, users){
       return 0;
     }
     return 0;
-  })
+  });
 
   //transform array to required format
   answer.forEach((e, i, array) =>{
     array[i] = e.stage
-  })
+  });
 
   return answer;
-}
+};
